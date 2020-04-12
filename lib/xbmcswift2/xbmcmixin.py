@@ -363,7 +363,7 @@ class XBMCMixin(object):
             self._add_subtitles(subtitles)
         return [item]
 
-    def play_video(self, item, player=None):
+    def play_video(self, item):
         try:
             # videos are always type video
             item['info_type'] = 'video'
@@ -372,10 +372,7 @@ class XBMCMixin(object):
 
         item = self._listitemify(item)
         item.set_played(True)
-        if player:
-            _player = xbmc.Player(player)
-        else:
-            _player = xbmc.Player()
+        _player = xbmc.Player()
         _player.play(item.get_path(), item.as_xbmc_listitem())
         return [item]
 

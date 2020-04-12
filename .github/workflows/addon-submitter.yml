@@ -56,6 +56,7 @@ jobs:
         release_name: Release ${{ github.ref }}
         draft: false
         prerelease: false
+        body: "Version for use in Kodi ${{ steps.extract_branch_pr.outputs.branch }} and above"
 
     - name: Upload Addon zip to github release
       id: upload-release-asset

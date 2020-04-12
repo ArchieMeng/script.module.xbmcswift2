@@ -19,18 +19,15 @@ from optparse import OptionParser
 from xbmcswift2 import xbmc, xbmcgui, xbmcplugin, xbmcaddon, Request
 from xbmcswift2.listitem import ListItem
 from xbmcswift2.logger import log, setup_log
-from xbmcswift2.common import enum, clean_dict, Modes, DEBUG_MODES, PY3
+from xbmcswift2.common import enum, clean_dict, Modes, DEBUG_MODES
 from xbmcswift2.urls import UrlRule, NotFoundException, AmbiguousUrlException
 from xbmcswift2.xbmcmixin import XBMCMixin
 
-if PY3:
-    from urllib.parse import urlencode, parse_qs
-else:
-    from urllib import urlencode
-    try:
-        from urlparse import parse_qs
-    except ImportError:
-        from cgi import parse_qs
+from urllib import urlencode
+try:
+    from urlparse import parse_qs
+except ImportError:
+    from cgi import parse_qs
 
 
 class Plugin(XBMCMixin):

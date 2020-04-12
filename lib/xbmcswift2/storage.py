@@ -140,7 +140,7 @@ class _Storage(collections.MutableMapping, _PersistentDictMixin):
         return iter(self._items)
 
     def __len__(self):
-        return self._items.__len__
+        return len(self._items)
 
     def raw_dict(self):
         '''Returns the wrapped dict'''

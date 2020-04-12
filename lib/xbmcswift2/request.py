@@ -8,16 +8,8 @@
     :copyright: (c) 2012 by Jonathan Beluch
     :license: GPLv3, see LICENSE for more details.
 '''
-from xbmcswift2.common import unpickle_args, PY3
-
-if PY3:
-    from urllib.parse import parse_qs, urlparse
-else:
-    from urlparse import urlparse
-    try:
-        from urlparse import parse_qs
-    except ImportError:
-        from cgi import parse_qs
+from urllib.parse import parse_qs, urlparse
+from xbmcswift2.common import unpickle_args
 
 
 class Request(object):

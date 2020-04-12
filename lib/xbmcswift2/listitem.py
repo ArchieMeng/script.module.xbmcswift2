@@ -44,29 +44,21 @@ class ListItem(object):
         self._listitem.setArt(self._art)
 
     def __repr__(self):
-        if PY3:
-            return ("<ListItem '%s'>" % self.label)
-        return ("<ListItem '%s'>" % self.label).encode('utf-8')
+        return ("<ListItem '%s'>" % self.label)
 
     def __str__(self):
-        if PY3:
-            return ('%s (%s)' % (self.label, self.path))
-        return ('%s (%s)' % (self.label, self.path)).encode('utf-8')
+        return ('%s (%s)' % (self.label, self.path))
 
     def get_context_menu_items(self):
         '''Returns the list of currently set context_menu items.'''
         return self._context_menu_items
 
-    def add_context_menu_items(self, items, replace_items=False):
-        '''Adds context menu items. replace_items is only kept for
-        legacy reasons, its functionality was removed.
+    def add_context_menu_items(self, items):
+        '''Adds context menu items.
         '''
         for label, action in items:
-            assert isinstance(label, basestring)
-            assert isinstance(action, basestring)
-
-        if replace_items:
-            log.warning("Replacing context menu items functionality was removed.")
+            assert isinstance(label, (str, bytes))
+            assert isinstance(action, (str, bytes))
 
         self._context_menu_items.extend(items)
         self._listitem.addContextMenuItems(items)

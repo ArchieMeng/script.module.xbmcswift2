@@ -9,5 +9,8 @@
     <license>GPL-3.0</license>
     <summary lang="en_GB">xbmcswift2 is a small framework to ease development of KODI addons.</summary>
     <description lang="en_GB">xbmcswift2 is a small framework to ease development of KODI addons.</description>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
   </extension>
 </addon>
